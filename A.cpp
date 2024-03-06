@@ -4,9 +4,9 @@
 #include <queue>
 using namespace std;
 
-void encrypt(char *s){
-    for(int i = 0; i < strlen(s); i++){
-        for(int j = i+1; j < strlen(s); j++){
+void encrypt(string s){
+    for(int i = 0; i < s.length(); i++){
+        for(int j = i+1; j < s.length(); j++){
             if (s[i] == s[j]){
                 cout << s[i];
                 i = j;
@@ -16,16 +16,24 @@ void encrypt(char *s){
     }
 }
 
+
 int main(){
     int t;
     cin >> t;
-    queue<char> q;
+    queue <string> q;
     for(int i = 0; i < t; i++){
         int n;
         cin >> n;
         char s[n+1];
         cin >> s;
-        encrypt(s);
+        q.push(s);
+    }
+
+    while(!q.empty()){
+        // cout << q.front() << endl;
+        encrypt(q.front());
+        cout << endl;
+        q.pop();
     }
     return 0;
 }
