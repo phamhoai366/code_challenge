@@ -86,11 +86,6 @@ int main() {
             q2.pop();
         }
 
-        // int *arr = new int[a+m];
-        // for(int i = 0; i < a; i++){
-        //     arr[i] = c[i];
-        // }
-
         int sum1 = 0, sum2 = 0;
 
         if(a % 2 == 0){
@@ -110,7 +105,7 @@ int main() {
             }
         }
         while(m != 0){
-            if(sum1 > sum2){
+            if(sum1 >= sum2){
                 if(d[0] > d[m-1]){
                     if(d[0] > 0){
                         addFirst(c, a, d[0]);
@@ -127,13 +122,13 @@ int main() {
                 }
                 else{
                     if(d[m-1] > 0){
-                        AddLast(c, a, d[m-1]);
+                        addFirst(c, a, d[m-1]);
                         a += 1;
                         delLast(d, m);
                         m -= 1;
                     }
                     else{
-                        addFirst(c, a, d[m-1]);
+                        AddLast(c, a, d[m-1]);
                         a += 1;
                         delLast(d, m);
                         m -= 1;
@@ -171,11 +166,14 @@ int main() {
                 }
             }
 
-            for(int i = 0; i < a; i++){
-                    cout << c[i] << " ";
-            }
-            cout << endl;
-            }
+            // for(int i = 0; i < a; i++){
+            //         cout << c[i] << " ";
+            // }
+            // cout << endl;
+            // }
+
         }
+        cout << maxSubarraySum(c, a) << endl;
+    }
     return 0;
 }
