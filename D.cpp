@@ -1,55 +1,39 @@
 #include <iostream>
 #include <stack>
-#include <queue>
 
 using namespace std;
 
 int main(){
-    int m;
-    cin >> m;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    queue <int> q;
-    stack <int> s;
+    long long q;
+    cin >> q;
 
-    for(int i = 0; i < m; i++){
-        int n;
+    stack <long long> s;
+
+    while(q--){
+        int n; 
         cin >> n;
-        q.push(n);
+
         if (n == 1){
-            int b; 
+            long long b;
             cin >> b;
-            q.push(b);
+            s.push(b);
         }
-    }
-
-    // while (!q.empty()){
-    //     cout << q.front() << " ";
-    //     q.pop();
-    // }
-
-    // cout << "result\n";
-    while (!q.empty()){
-        if (q.front() == 1){
-            q.pop();
-            s.push(q.front());
-            q.pop();
-        }
-        else if(q.front() == 2){
-            q.pop();
+        else if(n == 2){
             if(!s.empty()){
                 s.pop();
             }
         }
         else{
-            q.pop();
             if(!s.empty()){
-                cout << s.top() << endl;
+                cout << s.top() << '\n';
             }
             else{
                 cout << "Empty!\n";
             }
         }
     }
-
-    return 0; 
+    return 0;
 }
